@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Денис и Вероника · 07.07.2027</title>
+  <meta name="description" content="Приглашение на свадьбу Дениса и Вероники. 7 июля 2027 года, кафе «Артист», сбор гостей в 16:30.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#241640">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="Денис и Вероника приглашают вас на свадьбу">
+  <meta property="og:description" content="7 июля 2027 года, кафе «Артист». Откройте приглашение.">
+  <meta property="og:url" content="https://venarry.github.io/MarryVeronSite/">
+  <meta property="og:image" content="https://venarry.github.io/MarryVeronSite/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/cormorant-cyrillic-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js', 'is-sealed')</script>
+</head>
+<body>
+  <a class="skip-link body-5" href="#main">Перейти к приглашению</a>
+
+  <!-- Конверт. Без JavaScript скрыт, и гость сразу видит страницу. -->
+  <div class="gate" id="gate">
+    <span class="gate-paper" aria-hidden="true"></span>
+    <p class="gate-label caption-3">Вам приглашение</p>
+
+    <button class="env" id="env" type="button" aria-label="Открыть приглашение">
+      <svg class="env-back" viewBox="0 0 600 400" aria-hidden="true">
+        <rect width="600" height="400" rx="12" fill="var(--env-inside)"/>
+      </svg>
+
+      <span class="env-flap" aria-hidden="true">
+        <svg class="env-flap-outer" viewBox="0 0 600 260">
+          <path d="M0 12Q0 0 12 0H588Q600 0 600 12L324 232Q300 250 276 232Z" fill="var(--env-flap)"/>
+        </svg>
+        <svg class="env-flap-inner" viewBox="0 0 600 260">
+          <path d="M0 12Q0 0 12 0H588Q600 0 600 12L324 232Q300 250 276 232Z" fill="var(--env-inside)"/>
+          <path d="M24 12H576L318 220Q300 234 282 220Z" fill="var(--env-liner)"/>
+        </svg>
+      </span>
+
+      <span class="env-card" aria-hidden="true">
+        <span class="env-card-names">Денис <i>и</i> Вероника</span>
+        <span class="env-card-date">07 . 07 . 2027</span>
+      </span>
+
+      <svg class="env-pocket" viewBox="0 0 600 400" aria-hidden="true">
+        <path d="M0 14L300 226V400H12Q0 400 0 388Z" fill="var(--env-side)"/>
+        <path d="M600 14L300 226V400H588Q600 400 600 388Z" fill="var(--env-side-2)"/>
+        <path d="M2 394L276 212Q300 196 324 212L598 394Q600 400 588 400H12Q0 400 2 394Z" fill="var(--env-front)"/>
+      </svg>
+
+      <span class="env-flap-closed" aria-hidden="true">
+        <svg viewBox="0 0 600 260">
+          <path d="M0 12Q0 0 12 0H588Q600 0 600 12L324 232Q300 250 276 232Z" fill="var(--env-flap)"/>
+        </svg>
+      </span>
+
+      <span class="env-seal" aria-hidden="true">
+        <svg class="seal-half seal-left" viewBox="0 0 120 120"><use href="#seal"/></svg>
+        <svg class="seal-half seal-right" viewBox="0 0 120 120"><use href="#seal"/></svg>
+      </span>
+    </button>
+
+    <p class="gate-hint body-5">Нажмите на печать, чтобы открыть</p>
+  </div>
+
+  <svg class="defs" width="0" height="0" aria-hidden="true">
+    <defs>
+      <radialGradient id="wax" cx="38%" cy="30%" r="80%">
+        <stop offset="0" stop-color="var(--lav-500)"/>
+        <stop offset=".55" stop-color="var(--lav-700)"/>
+        <stop offset="1" stop-color="var(--lav-800)"/>
+      </radialGradient>
+      <g id="seal">
+        <path d="M60 5C74 2 85 10 94 15C105 22 113 32 115 46C118 58 117 71 111 83C105 95 96 104 83 110C71 116 58 118 45 114C32 111 19 104 12 92C5 80 2 67 5 54C7 41 13 29 24 19C34 10 46 7 60 5Z" fill="url(#wax)"/>
+        <circle cx="60" cy="60" r="39" fill="none" stroke="var(--lav-800)" stroke-width="2"/>
+        <circle cx="60" cy="61" r="39" fill="none" stroke="var(--lav-400)" stroke-opacity=".45" stroke-width="1"/>
+        <text x="60" y="73" text-anchor="middle" font-family="Cormorant, serif" font-style="italic" font-size="38" fill="var(--lav-800)">Д·В</text>
+        <text x="60" y="74" text-anchor="middle" font-family="Cormorant, serif" font-style="italic" font-size="38" fill="var(--lav-200)" fill-opacity=".9">Д·В</text>
+      </g>
+      <!-- Складки ткани на образцах дресс-кода -->
+      <filter id="silk-1" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency=".035 .004" numOctaves="3" seed="4"/>
+        <feDiffuseLighting surfaceScale="9" lighting-color="#fff"><feDistantLight azimuth="20" elevation="52"/></feDiffuseLighting>
+      </filter>
+      <filter id="silk-2" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency=".028 .005" numOctaves="3" seed="11"/>
+        <feDiffuseLighting surfaceScale="10" lighting-color="#fff"><feDistantLight azimuth="160" elevation="50"/></feDiffuseLighting>
+      </filter>
+      <filter id="silk-3" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency=".042 .003" numOctaves="3" seed="23"/>
+        <feDiffuseLighting surfaceScale="8" lighting-color="#fff"><feDistantLight azimuth="40" elevation="54"/></feDiffuseLighting>
+      </filter>
+    </defs>
+  </svg>
+
+  <main id="main" tabindex="-1">
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-sprigs" data-sprigs="5" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <p class="caption-3 hero-kicker">Приглашение на свадьбу</p>
+        <h1 class="hero-names" id="hero-title">
+          <span>Денис</span>
+          <span class="hero-and">и</span>
+          <span>Вероника</span>
+        </h1>
+        <p class="hero-lead title-1">Мы женимся и приглашаем вас<br>разделить с нами этот день</p>
+        <dl class="hero-facts">
+          <div><dt class="caption-4">Дата</dt><dd>07.07.2027</dd></div>
+          <div><dt class="caption-4">Сбор гостей</dt><dd>16:30</dd></div>
+          <div><dt class="caption-4">Место</dt><dd>Кафе «Артист»</dd></div>
+        </dl>
+        <a class="btn btn-primary button-md" href="#anketa">Заполнить анкету гостя</a>
+      </div>
+    </section>
+
+    <section class="vow" aria-label="Несколько слов от Дениса и Вероники">
+      <p class="vow-text" data-words>В этот день мы хотим видеть<br class="wide-only">рядом самых близких людей.<br>Поэтому пишем именно вам.</p>
+    </section>
+
+    <section class="where section" aria-labelledby="where-title" data-reveal>
+      <div class="wrap where-grid">
+        <div class="where-text">
+          <h2 class="heading-2" id="where-title">Когда и где</h2>
+          <p class="where-date">Среда, 7 июля 2027 года</p>
+          <p class="where-date">Сбор гостей в 16:30</p>
+          <p class="where-place">Кафе «Артист»</p>
+          <address class="body-3">Проспект Анатолия Дериглазова, 17г, Курск</address>
+          <div class="where-actions">
+            <a class="btn btn-outline button-sm" href="https://yandex.ru/maps/org/artist/19796286776/" target="_blank" rel="noopener">Открыть на карте</a>
+            <a class="btn btn-outline button-sm" href="assets/svadba-denis-veronika.ics" download>Добавить в календарь</a>
+          </div>
+        </div>
+
+        <div class="calendar" role="img" aria-label="Календарь на июль 2027 года, отмечена среда, 7 июля">
+          <p class="calendar-month">Июль 2027</p>
+          <div class="calendar-grid caption-5" aria-hidden="true">
+            <span class="dow">пн</span><span class="dow">вт</span><span class="dow">ср</span><span class="dow">чт</span><span class="dow">пт</span><span class="dow">сб</span><span class="dow">вс</span>
+            <span></span><span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span>
+            <span>5</span><span>6</span><span class="day-mark"><b>7</b><svg viewBox="0 0 60 60"><path d="M31 6C15 5 6 17 6 31C7 45 18 55 32 54C46 53 55 42 54 28C53 15 42 6 27 8"/></svg></span><span>8</span><span>9</span><span>10</span><span>11</span>
+            <span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span>
+            <span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span>
+            <span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="plan" aria-labelledby="plan-title">
+      <div class="wrap plan-head" data-reveal>
+        <h2 class="heading-2" id="plan-title">Как пройдёт вечер</h2>
+      </div>
+      <ol class="plan-list">
+        <li class="band band-1" data-reveal>
+          <div class="wrap band-inner">
+            <time class="band-time" datetime="2027-07-07T16:30">16:30</time>
+            <p class="band-title">Сбор гостей <span class="band-note body-5">Просим приехать к этому времени</span></p>
+          </div>
+        </li>
+        <li class="band band-2" data-reveal>
+          <div class="wrap band-inner">
+            <time class="band-time" datetime="2027-07-07T17:00">17:00</time>
+            <p class="band-title">Выход молодожёнов</p>
+          </div>
+        </li>
+        <li class="band band-3" data-reveal>
+          <div class="wrap band-inner">
+            <time class="band-time" datetime="2027-07-07T18:40">18:40</time>
+            <p class="band-title">Свадебный танец</p>
+          </div>
+        </li>
+        <li class="band band-4" data-reveal>
+          <div class="wrap band-inner">
+            <time class="band-time" datetime="2027-07-07T21:00">21:00</time>
+            <p class="band-title">Торт</p>
+          </div>
+        </li>
+        <li class="band band-5" data-reveal>
+          <div class="wrap band-inner">
+            <time class="band-time" datetime="2027-07-07T23:00">23:00</time>
+            <p class="band-title">Завершение праздника</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="dress section" aria-labelledby="dress-title">
+      <div class="wrap">
+        <div class="dress-head" data-reveal>
+          <h2 class="heading-2" id="dress-title">В чём приходить</h2>
+          <p class="dress-rule">Дресс-код: лавандовые и фиолетовые оттенки</p>
+          <p class="body-3 dress-text">Просим всех гостей выбрать наряд в одном из этих цветов.</p>
+        </div>
+
+        <!-- Когда появятся фото от декоратора: заменить <svg class="folds"> на <img src="assets/dress/имя.jpg" alt="Лаванда"> -->
+        <ul class="swatches" data-reveal>
+          <li class="swatch" style="--c: var(--lav-200)"><svg class="folds" aria-hidden="true"><rect width="100%" height="100%" filter="url(#silk-1)"/></svg><span class="caption-1">Лаванда</span></li>
+          <li class="swatch" style="--c: var(--lav-300)"><svg class="folds" aria-hidden="true"><rect width="100%" height="100%" filter="url(#silk-2)"/></svg><span class="caption-1">Сирень</span></li>
+          <li class="swatch" style="--c: var(--lav-400)"><svg class="folds" aria-hidden="true"><rect width="100%" height="100%" filter="url(#silk-3)"/></svg><span class="caption-1">Глициния</span></li>
+          <li class="swatch" style="--c: var(--lav-500)"><svg class="folds" aria-hidden="true"><rect width="100%" height="100%" filter="url(#silk-1)"/></svg><span class="caption-1">Аметист</span></li>
+          <li class="swatch" style="--c: var(--lav-700)"><svg class="folds" aria-hidden="true"><rect width="100%" height="100%" filter="url(#silk-2)"/></svg><span class="caption-1">Фиолет</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="notes section" aria-labelledby="notes-title">
+      <div class="wrap">
+        <h2 class="heading-2" id="notes-title" data-reveal>Что важно знать</h2>
+        <div class="notes-grid">
+          <article class="note" data-reveal>
+            <p class="note-mark" aria-hidden="true">7+</p>
+            <h3 class="heading-5">Дети от 7 лет</h3>
+            <p class="body-3">Ждём детей от 7 лет. Малышей младше 7 лет, пожалуйста, с собой не берите.</p>
+          </article>
+          <article class="note" data-reveal>
+            <p class="note-mark" aria-hidden="true">?</p>
+            <h3 class="heading-5">Вопросы</h3>
+            <p class="body-3">Организатора на празднике нет. По всем вопросам пишите или звоните напрямую:</p>
+            <div class="note-contact" data-contact></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="rsvp section" id="anketa" aria-labelledby="rsvp-title">
+      <div class="wrap rsvp-grid">
+        <div class="rsvp-head" data-reveal>
+          <h2 class="heading-2" id="rsvp-title">Анкета гостя</h2>
+          <p class="body-3">Это займёт минуту и поможет нам подготовить всё к вашему приезду.</p>
+          <div class="rsvp-sprigs" data-sprigs="3" aria-hidden="true"></div>
+        </div>
+
+        <form class="form" id="rsvp-form" novalidate data-reveal>
+          <div class="field">
+            <label class="title-3" for="f-name">Ваше имя и фамилия</label>
+            <input class="input body-3" id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-error">
+            <p class="error caption-2" id="f-name-error" hidden>Напишите, пожалуйста, имя и фамилию.</p>
+          </div>
+
+          <fieldset class="field" id="f-attend" aria-describedby="f-attend-error">
+            <legend class="title-3">Сможете прийти?</legend>
+            <div class="choices choices-two">
+              <label class="choice"><input type="radio" name="attend" value="Да" required><span class="button-sm">Да, приду</span></label>
+              <label class="choice"><input type="radio" name="attend" value="Нет"><span class="button-sm">К сожалению, нет</span></label>
+            </div>
+            <p class="error caption-2" id="f-attend-error" hidden>Выберите один из вариантов.</p>
+          </fieldset>
+
+          <div class="form-more" id="form-more" hidden>
+            <div class="field">
+              <label class="title-3" for="f-guests">С кем придёте?</label>
+              <input class="input body-3" id="f-guests" name="guests" type="text" autocomplete="off" aria-describedby="f-guests-help">
+              <p class="caption-2 help" id="f-guests-help">Имена спутников. Если придёте с ребёнком, укажите и возраст: ждём детей от 7 лет.</p>
+            </div>
+
+            <fieldset class="field">
+              <legend class="title-3">Что будете пить?</legend>
+              <div class="choices">
+                <label class="choice"><input type="checkbox" name="drinks" value="Шампанское"><span class="button-sm">Шампанское</span></label>
+                <label class="choice"><input type="checkbox" name="drinks" value="Белое вино"><span class="button-sm">Белое вино</span></label>
+                <label class="choice"><input type="checkbox" name="drinks" value="Красное вино"><span class="button-sm">Красное вино</span></label>
+                <label class="choice"><input type="checkbox" name="drinks" value="Крепкие напитки"><span class="button-sm">Крепкие напитки</span></label>
+                <label class="choice"><input type="checkbox" name="drinks" value="Без алкоголя"><span class="button-sm">Без алкоголя</span></label>
+                <label class="choice"><input type="checkbox" name="drinks" value="Другое" id="f-drinks-other-check" aria-controls="f-drinks-other-box"><span class="button-sm">Другое</span></label>
+              </div>
+              <div class="field drinks-other" id="f-drinks-other-box" hidden>
+                <label class="caption-1" for="f-drinks-other">Что именно?</label>
+                <input class="input body-3" id="f-drinks-other" name="drinksOther" type="text" autocomplete="off">
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label class="title-3" for="f-food">Есть аллергия или особенности в еде?</label>
+              <input class="input body-3" id="f-food" name="food" type="text" autocomplete="off">
+            </div>
+
+            <div class="field">
+              <label class="title-3" for="f-song">Под какую песню вы точно выйдете танцевать?</label>
+              <input class="input body-3" id="f-song" name="song" type="text" autocomplete="off">
+            </div>
+          </div>
+
+          <button class="btn btn-primary button-md" id="rsvp-submit" type="submit">Отправить анкету</button>
+          <p class="form-status body-5" id="rsvp-status" role="status" hidden></p>
+        </form>
+      </div>
+    </section>
+
+    <footer class="finale">
+      <div class="finale-sprigs" data-sprigs="7" aria-hidden="true"></div>
+      <div class="wrap finale-inner" data-reveal>
+        <p class="finale-line">До встречи<br>7 июля</p>
+        <p class="body-3 finale-sub">Денис и Вероника</p>
+        <p class="caption-2 finale-count" id="countdown" hidden></p>
+      </div>
+    </footer>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

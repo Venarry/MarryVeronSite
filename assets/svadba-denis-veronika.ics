@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Denis and Veronika//Wedding//RU
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:wedding-denis-veronika-20270707@invitation
+DTSTAMP:20261104T000000Z
+DTSTART:20270707T133000Z
+DTEND:20270707T200000Z
+SUMMARY:Свадьба Дениса и Вероники
+LOCATION:Кафе «Артист»\, проспект Анатолия Дериглазова\, 17г\, Курск
+DESCRIPTION:Сбор гостей в 16:30. Дресс-код: лавандовые и фиолетовые оттенки.
+END:VEVENT
+END:VCALENDAR
