@@ -6,7 +6,7 @@
   <title>Денис и Вероника · 07.07.2027</title>
   <meta name="description" content="Приглашение на свадьбу Дениса и Вероники. 7 июля 2027 года, кафе «Артист», сбор гостей в 16:30.">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#241640">
+  <meta name="theme-color" content="#D2C3E9">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
@@ -19,73 +19,32 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/cormorant-cyrillic-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/img/curtain.webp" as="image" type="image/webp">
+  <link rel="preload" href="assets/fonts/cormorant-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
   <script>document.documentElement.classList.add('js', 'is-sealed')</script>
 </head>
 <body>
   <a class="skip-link body-5" href="#main">Перейти к приглашению</a>
 
-  <!-- Конверт. Без JavaScript скрыт, и гость сразу видит страницу. -->
-  <div class="gate" id="gate">
-    <span class="gate-paper" aria-hidden="true"></span>
-    <p class="gate-label caption-3">Вам приглашение</p>
-
-    <button class="env" id="env" type="button" aria-label="Открыть приглашение">
-      <svg class="env-back" viewBox="0 0 600 400" aria-hidden="true">
-        <rect width="600" height="400" rx="12" fill="var(--env-inside)"/>
-      </svg>
-
-      <span class="env-flap" aria-hidden="true">
-        <svg class="env-flap-outer" viewBox="0 0 600 260">
-          <path d="M0 12Q0 0 12 0H588Q600 0 600 12L324 232Q300 250 276 232Z" fill="var(--env-flap)"/>
-        </svg>
-        <svg class="env-flap-inner" viewBox="0 0 600 260">
-          <path d="M0 12Q0 0 12 0H588Q600 0 600 12L324 232Q300 250 276 232Z" fill="var(--env-inside)"/>
-          <path d="M24 12H576L318 220Q300 234 282 220Z" fill="var(--env-liner)"/>
-        </svg>
+  <!-- Занавес. Без JavaScript скрыт, и гость сразу видит страницу. Правую половину создаёт main.js. -->
+  <button class="gate" id="gate" type="button" aria-label="Открыть приглашение">
+    <span class="curtain curtain-left" aria-hidden="true">
+      <span class="curtain-scene">
+        <svg class="curtain-heart" viewBox="0 0 100 90"><path d="M50 88C20 64 2 46 2 26 2 12 13 2 26 2c10 0 19 6 24 15C55 8 64 2 74 2c13 0 24 10 24 24 0 20-18 38-48 62Z"/></svg>
+        <span class="curtain-text">
+          <span class="curtain-lead">Совсем немного<br>до самого главного…</span>
+          <span class="curtain-names">Денис<br>&amp; Вероника</span>
+          <span class="curtain-date">7 июля 2027</span>
+          <span class="curtain-hint">Нажмите на экран</span>
+        </span>
       </span>
-
-      <span class="env-card" aria-hidden="true">
-        <span class="env-card-names">Денис <i>и</i> Вероника</span>
-        <span class="env-card-date">07 . 07 . 2027</span>
-      </span>
-
-      <svg class="env-pocket" viewBox="0 0 600 400" aria-hidden="true">
-        <path d="M0 14L300 226V400H12Q0 400 0 388Z" fill="var(--env-side)"/>
-        <path d="M600 14L300 226V400H588Q600 400 600 388Z" fill="var(--env-side-2)"/>
-        <path d="M2 394L276 212Q300 196 324 212L598 394Q600 400 588 400H12Q0 400 2 394Z" fill="var(--env-front)"/>
-      </svg>
-
-      <span class="env-flap-closed" aria-hidden="true">
-        <svg viewBox="0 0 600 260">
-          <path d="M0 12Q0 0 12 0H588Q600 0 600 12L324 232Q300 250 276 232Z" fill="var(--env-flap)"/>
-        </svg>
-      </span>
-
-      <span class="env-seal" aria-hidden="true">
-        <svg class="seal-half seal-left" viewBox="0 0 120 120"><use href="#seal"/></svg>
-        <svg class="seal-half seal-right" viewBox="0 0 120 120"><use href="#seal"/></svg>
-      </span>
-    </button>
-
-    <p class="gate-hint body-5">Нажмите на печать, чтобы открыть</p>
-  </div>
+    </span>
+    <span class="gate-seam" aria-hidden="true"></span>
+  </button>
 
   <svg class="defs" width="0" height="0" aria-hidden="true">
     <defs>
-      <radialGradient id="wax" cx="38%" cy="30%" r="80%">
-        <stop offset="0" stop-color="var(--lav-500)"/>
-        <stop offset=".55" stop-color="var(--lav-700)"/>
-        <stop offset="1" stop-color="var(--lav-800)"/>
-      </radialGradient>
-      <g id="seal">
-        <path d="M60 5C74 2 85 10 94 15C105 22 113 32 115 46C118 58 117 71 111 83C105 95 96 104 83 110C71 116 58 118 45 114C32 111 19 104 12 92C5 80 2 67 5 54C7 41 13 29 24 19C34 10 46 7 60 5Z" fill="url(#wax)"/>
-        <circle cx="60" cy="60" r="39" fill="none" stroke="var(--lav-800)" stroke-width="2"/>
-        <circle cx="60" cy="61" r="39" fill="none" stroke="var(--lav-400)" stroke-opacity=".45" stroke-width="1"/>
-        <text x="60" y="73" text-anchor="middle" font-family="Cormorant, serif" font-style="italic" font-size="38" fill="var(--lav-800)">Д·В</text>
-        <text x="60" y="74" text-anchor="middle" font-family="Cormorant, serif" font-style="italic" font-size="38" fill="var(--lav-200)" fill-opacity=".9">Д·В</text>
-      </g>
       <!-- Складки ткани на образцах дресс-кода -->
       <filter id="silk-1" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
         <feTurbulence type="fractalNoise" baseFrequency=".035 .004" numOctaves="3" seed="4"/>
@@ -105,38 +64,48 @@
   <main id="main" tabindex="-1">
 
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-sprigs" data-sprigs="5" aria-hidden="true"></div>
       <div class="hero-inner">
-        <p class="caption-3 hero-kicker">Приглашение на свадьбу</p>
-        <h1 class="hero-names" id="hero-title">
-          <span>Денис</span>
-          <span class="hero-and">и</span>
-          <span>Вероника</span>
-        </h1>
-        <p class="hero-lead title-1">Мы женимся и приглашаем вас<br>разделить с нами этот день</p>
+        <p class="caption-3 hero-kicker">Приглашение на нашу свадьбу</p>
+        <h1 class="hero-names" id="hero-title">Денис<br>&amp; Вероника</h1>
+        <div class="hero-side">
+          <p class="body-3">Совсем скоро скажем друг другу:</p>
+          <p class="script hero-yes">Да!</p>
+        </div>
+
+        <!-- Фото пары: assets/photos/couple.jpg, квадратное. Пока файла нет, видна подпись-заполнитель. -->
+        <figure class="polaroid">
+          <span class="polaroid-tape" aria-hidden="true"></span>
+          <div class="polaroid-photo">
+            <span class="polaroid-empty caption-2">Здесь будет ваше фото</span>
+            <img src="assets/photos/couple.jpg" alt="Денис и Вероника" width="1200" height="1200" onerror="this.remove()">
+          </div>
+          <figcaption class="script">07.07.2027</figcaption>
+        </figure>
+
         <dl class="hero-facts">
-          <div><dt class="caption-4">Дата</dt><dd>07.07.2027</dd></div>
           <div><dt class="caption-4">Сбор гостей</dt><dd>16:30</dd></div>
           <div><dt class="caption-4">Место</dt><dd>Кафе «Артист»</dd></div>
         </dl>
-        <a class="btn btn-primary button-md" href="#anketa">Заполнить анкету гостя</a>
+        <a class="btn btn-primary button-md hero-cta" href="#anketa">Заполнить анкету гостя</a>
+      </div>
+      <p class="hero-scroll caption-2" aria-hidden="true">листайте вниз<span class="hero-arrow">↓</span></p>
+    </section>
+
+    <section class="vow" aria-labelledby="vow-title">
+      <img class="side-pic side-pic-right" data-reveal="right" src="assets/img/lavender.webp" alt="" loading="lazy">
+      <div class="vow-inner">
+        <h2 class="script script-lg" id="vow-title" data-reveal>Дорогие родные и близкие!</h2>
+        <p class="vow-text" data-words>В этот день мы хотим видеть<br class="wide-only">рядом самых близких людей.<br>Поэтому пишем именно вам.</p>
       </div>
     </section>
 
-    <section class="vow" aria-label="Несколько слов от Дениса и Вероники">
-      <p class="vow-text" data-words>В этот день мы хотим видеть<br class="wide-only">рядом самых близких людей.<br>Поэтому пишем именно вам.</p>
-    </section>
-
-    <section class="where section" aria-labelledby="where-title" data-reveal>
-      <div class="wrap where-grid">
-        <div class="where-text">
-          <h2 class="heading-2" id="where-title">Когда и где</h2>
+    <section class="when section" aria-labelledby="when-title" data-reveal>
+      <div class="wrap when-grid">
+        <div class="when-text">
+          <h2 class="script script-lg" id="when-title">Сохраните эту дату</h2>
           <p class="where-date">Среда, 7 июля 2027 года</p>
           <p class="where-date">Сбор гостей в 16:30</p>
-          <p class="where-place">Кафе «Артист»</p>
-          <address class="body-3">Проспект Анатолия Дериглазова, 17г, Курск</address>
           <div class="where-actions">
-            <a class="btn btn-outline button-sm" href="https://yandex.ru/maps/org/artist/19796286776/" target="_blank" rel="noopener">Открыть на карте</a>
             <a class="btn btn-outline button-sm" href="assets/svadba-denis-veronika.ics" download>Добавить в календарь</a>
           </div>
         </div>
@@ -155,37 +124,54 @@
       </div>
     </section>
 
+    <section class="where" aria-labelledby="where-title">
+      <img class="where-phone" data-live src="assets/img/phone.webp" alt="" loading="lazy">
+      <div class="wrap where-inner" data-reveal>
+        <h2 class="script script-lg" id="where-title">Где будем праздновать?</h2>
+        <p class="where-place">Кафе «Артист»</p>
+        <address class="body-3">Проспект Анатолия Дериглазова, 17г, Курск</address>
+        <div class="where-actions">
+          <a class="btn btn-outline button-sm" href="https://yandex.ru/maps/org/artist/19796286776/" target="_blank" rel="noopener">Открыть на карте</a>
+        </div>
+      </div>
+    </section>
+
     <section class="plan" aria-labelledby="plan-title">
       <div class="wrap plan-head" data-reveal>
-        <h2 class="heading-2" id="plan-title">Как пройдёт вечер</h2>
+        <h2 class="script script-lg" id="plan-title">Как пройдёт вечер</h2>
       </div>
       <ol class="plan-list">
         <li class="band band-1" data-reveal>
           <div class="wrap band-inner">
+            <img class="band-pic" src="assets/img/band-1.webp" alt="" loading="lazy">
             <time class="band-time" datetime="2027-07-07T16:30">16:30</time>
             <p class="band-title">Сбор гостей <span class="band-note body-5">Просим приехать к этому времени</span></p>
           </div>
         </li>
         <li class="band band-2" data-reveal>
           <div class="wrap band-inner">
+            <img class="band-pic" src="assets/img/band-2.webp" alt="" loading="lazy">
             <time class="band-time" datetime="2027-07-07T17:00">17:00</time>
             <p class="band-title">Выход молодожёнов</p>
           </div>
         </li>
         <li class="band band-3" data-reveal>
           <div class="wrap band-inner">
+            <img class="band-pic" src="assets/img/band-3.webp" alt="" loading="lazy">
             <time class="band-time" datetime="2027-07-07T18:40">18:40</time>
             <p class="band-title">Свадебный танец</p>
           </div>
         </li>
         <li class="band band-4" data-reveal>
           <div class="wrap band-inner">
+            <img class="band-pic" src="assets/img/band-4.webp" alt="" loading="lazy">
             <time class="band-time" datetime="2027-07-07T21:00">21:00</time>
             <p class="band-title">Торт</p>
           </div>
         </li>
         <li class="band band-5" data-reveal>
           <div class="wrap band-inner">
+            <img class="band-pic" src="assets/img/band-5.webp" alt="" loading="lazy">
             <time class="band-time" datetime="2027-07-07T23:00">23:00</time>
             <p class="band-title">Завершение праздника</p>
           </div>
@@ -195,26 +181,40 @@
 
     <section class="dress section" aria-labelledby="dress-title">
       <div class="wrap">
+        <div class="note-hands" data-reveal="zoom">
+          <img src="assets/img/hands.webp" alt="" loading="lazy">
+          <h2 class="script note-hands-text" id="dress-title">В чём нам<br>приходить?</h2>
+        </div>
         <div class="dress-head" data-reveal>
-          <h2 class="heading-2" id="dress-title">В чём приходить</h2>
           <p class="dress-rule">Дресс-код: лавандовые и фиолетовые оттенки</p>
           <p class="body-3 dress-text">Просим всех гостей выбрать наряд в одном из этих цветов.</p>
         </div>
 
         <!-- Когда появятся фото от декоратора: заменить <svg class="folds"> на <img src="assets/dress/имя.jpg" alt="Лаванда"> -->
         <ul class="swatches" data-reveal>
-          <li class="swatch" style="--c: var(--lav-200)"><svg class="folds" aria-hidden="true"><rect width="100%" height="100%" filter="url(#silk-1)"/></svg><span class="caption-1">Лаванда</span></li>
-          <li class="swatch" style="--c: var(--lav-300)"><svg class="folds" aria-hidden="true"><rect width="100%" height="100%" filter="url(#silk-2)"/></svg><span class="caption-1">Сирень</span></li>
-          <li class="swatch" style="--c: var(--lav-400)"><svg class="folds" aria-hidden="true"><rect width="100%" height="100%" filter="url(#silk-3)"/></svg><span class="caption-1">Глициния</span></li>
-          <li class="swatch" style="--c: var(--lav-500)"><svg class="folds" aria-hidden="true"><rect width="100%" height="100%" filter="url(#silk-1)"/></svg><span class="caption-1">Аметист</span></li>
-          <li class="swatch" style="--c: var(--lav-700)"><svg class="folds" aria-hidden="true"><rect width="100%" height="100%" filter="url(#silk-2)"/></svg><span class="caption-1">Фиолет</span></li>
+          <li class="swatch" style="--c: var(--dress-1)"><svg class="folds" aria-hidden="true"><rect width="100%" height="100%" filter="url(#silk-1)"/></svg><span class="caption-1">Лаванда</span></li>
+          <li class="swatch" style="--c: var(--dress-2)"><svg class="folds" aria-hidden="true"><rect width="100%" height="100%" filter="url(#silk-2)"/></svg><span class="caption-1">Сирень</span></li>
+          <li class="swatch" style="--c: var(--dress-3)"><svg class="folds" aria-hidden="true"><rect width="100%" height="100%" filter="url(#silk-3)"/></svg><span class="caption-1">Глициния</span></li>
+          <li class="swatch" style="--c: var(--dress-4)"><svg class="folds" aria-hidden="true"><rect width="100%" height="100%" filter="url(#silk-1)"/></svg><span class="caption-1">Аметист</span></li>
+          <li class="swatch" style="--c: var(--dress-5)"><svg class="folds" aria-hidden="true"><rect width="100%" height="100%" filter="url(#silk-2)"/></svg><span class="caption-1">Фиолет</span></li>
         </ul>
+      </div>
+    </section>
+
+    <section class="gifts section" aria-labelledby="gifts-title">
+      <div class="wrap gifts-grid">
+        <div class="gifts-text" data-reveal>
+          <h2 class="script script-lg" id="gifts-title">Вместо цветов</h2>
+          <p class="gifts-lead">Пожалуйста, приходите без букетов.</p>
+          <p class="body-3">Вместо них можно дополнить конверт или принести бутылочку алкоголя, которую мы откроем в особый семейный вечер.</p>
+        </div>
+        <img class="gifts-pic" data-reveal="right" src="assets/img/gift.webp" alt="" loading="lazy">
       </div>
     </section>
 
     <section class="notes section" aria-labelledby="notes-title">
       <div class="wrap">
-        <h2 class="heading-2" id="notes-title" data-reveal>Что важно знать</h2>
+        <h2 class="script script-lg" id="notes-title" data-reveal>Что важно знать</h2>
         <div class="notes-grid">
           <article class="note" data-reveal>
             <p class="note-mark" aria-hidden="true">7+</p>
@@ -236,7 +236,7 @@
         <div class="rsvp-head" data-reveal>
           <h2 class="heading-2" id="rsvp-title">Анкета гостя</h2>
           <p class="body-3">Это займёт минуту и поможет нам подготовить всё к вашему приезду.</p>
-          <div class="rsvp-sprigs" data-sprigs="3" aria-hidden="true"></div>
+          <img class="rsvp-pic" src="assets/img/lavender.webp" alt="" loading="lazy">
         </div>
 
         <form class="form" id="rsvp-form" novalidate data-reveal>
@@ -295,12 +295,28 @@
       </div>
     </section>
 
-    <footer class="finale">
-      <div class="finale-sprigs" data-sprigs="7" aria-hidden="true"></div>
-      <div class="wrap finale-inner" data-reveal>
-        <p class="finale-line">До встречи<br>7 июля</p>
+    <footer class="finale" data-live>
+      <div class="finale-hearts" aria-hidden="true"><span>♥</span><span>♥</span><span>♥</span><span>♥</span><span>♥</span><span>♥</span><span>♥</span></div>
+      <div class="wrap finale-inner">
+        <div class="timer" id="timer" data-reveal hidden>
+          <p class="script script-lg">До торжества</p>
+          <div class="timer-row" role="timer" aria-label="Обратный отсчёт до свадьбы">
+            <div><b data-unit="days"></b><span class="caption-5" data-label="days"></span></div>
+            <div><b data-unit="hours"></b><span class="caption-5" data-label="hours"></span></div>
+            <div><b data-unit="minutes"></b><span class="caption-5" data-label="minutes"></span></div>
+            <div><b data-unit="seconds"></b><span class="caption-5" data-label="seconds"></span></div>
+          </div>
+        </div>
+
+        <div class="plate" data-reveal="zoom">
+          <img src="assets/img/plate.webp" alt="" loading="lazy">
+          <div class="plate-card">
+            <p class="plate-line">Мы вас очень ждём!</p>
+            <p class="script plate-love">и любим</p>
+            <p class="caption-4">07.07.2027</p>
+          </div>
+        </div>
         <p class="body-3 finale-sub">Денис и Вероника</p>
-        <p class="caption-2 finale-count" id="countdown" hidden></p>
       </div>
     </footer>
   </main>

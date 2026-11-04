@@ -1,1 +1,5 @@
 .claude/
+
+# Оригиналы фото не публикуются: на сайт идут только подготовленные файлы
+assets/photos/*
+!assets/photos/couple*.jpg

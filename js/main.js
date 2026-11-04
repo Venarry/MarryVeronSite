@@ -6,15 +6,10 @@
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var config = window.INVITATION || {};
 
-  /* ---------- Конверт ---------- */
+  /* ---------- Занавес ---------- */
 
   var gate = document.getElementById('gate');
-  var env = document.getElementById('env');
   var main = document.getElementById('main');
-
-  function wait(ms) {
-    return new Promise(function (resolve) { setTimeout(resolve, ms); });
-  }
 
   function play(el, frames, options) {
     return el.animate(frames, Object.assign({ easing: EASE, fill: 'forwards' }, options)).finished;
@@ -29,27 +24,26 @@
   }
 
   function scatterPetals() {
-    var box = env.getBoundingClientRect();
     var colors = ['--lav-200', '--lav-300', '--lav-400', '--lav-500'];
-    for (var i = 0; i < 22; i++) {
+    var centerX = window.innerWidth / 2;
+    for (var i = 0; i < 24; i++) {
       var petal = document.createElement('span');
       petal.className = 'petal';
       petal.style.background = 'var(' + colors[i % colors.length] + ')';
       document.body.appendChild(petal);
 
-      var startX = box.left + box.width * (0.2 + Math.random() * 0.6);
-      var startY = box.top + box.height * 0.1;
-      var driftX = (Math.random() - 0.5) * window.innerWidth * 0.9;
-      var peakY = startY - 60 - Math.random() * 160;
+      var startX = centerX + (Math.random() - 0.5) * 60;
+      var startY = window.innerHeight * (0.1 + Math.random() * 0.5);
+      var driftX = (Math.random() - 0.5) * window.innerWidth * 1.1;
       var endY = window.innerHeight + 40;
       var spin = 240 + Math.random() * 520;
       var anim = petal.animate([
         { transform: 'translate(' + startX + 'px,' + startY + 'px) rotate(0deg)', opacity: 0 },
-        { transform: 'translate(' + (startX + driftX * 0.35) + 'px,' + peakY + 'px) rotate(' + spin * 0.3 + 'deg)', opacity: 1, offset: 0.22 },
-        { transform: 'translate(' + (startX + driftX) + 'px,' + endY + 'px) rotate(' + spin + 'deg)', opacity: 0.9 }
+        { transform: 'translate(' + (startX + driftX * 0.5) + 'px,' + (startY + 40) + 'px) rotate(' + spin * 0.3 + 'deg)', opacity: 1, offset: 0.2 },
+        { transform: 'translate(' + (startX + driftX) + 'px,' + endY + 'px) rotate(' + spin + 'deg)', opacity: 0.8 }
       ], {
-        duration: 2600 + Math.random() * 1400,
-        delay: Math.random() * 500,
+        duration: 2800 + Math.random() * 1600,
+        delay: Math.random() * 400,
         easing: 'cubic-bezier(.3, .15, .6, 1)',
         fill: 'both'
       });
@@ -57,74 +51,37 @@
     }
   }
 
-  async function openEnvelope() {
-    env.disabled = true;
-    env.setAttribute('aria-busy', 'true');
-    document.querySelectorAll('.gate-hint, .gate-label').forEach(function (el) {
-      play(el, [{ opacity: 1 }, { opacity: 0 }], { duration: 300 });
-    });
+  async function openCurtain() {
+    gate.disabled = true;
 
     if (reducedMotion) {
+      root.classList.add('is-open');
       await play(gate, [{ opacity: 1 }, { opacity: 0 }], { duration: 300 });
       finishOpening();
       return;
     }
 
-    var flapClosed = env.querySelector('.env-flap-closed');
-    var flap = env.querySelector('.env-flap');
-    var card = env.querySelector('.env-card');
-    var seal = env.querySelector('.env-seal');
-    var height = env.offsetHeight;
+    // 1. По шву между половинами пробегает свет
+    await play(gate.querySelector('.gate-seam'), [
+      { transform: 'scaleY(0)', opacity: 0 },
+      { transform: 'scaleY(1)', opacity: 1 }
+    ], { duration: 320 });
 
-    // 1. Печать трескается и падает
-    await wait(60);
-    play(env.querySelector('.seal-left'), [
-      { transform: 'none', opacity: 1 },
-      { transform: 'translate(-34%, 70%) rotate(-28deg)', opacity: 0 }
-    ], { duration: 620 });
-    await play(env.querySelector('.seal-right'), [
-      { transform: 'none', opacity: 1 },
-      { transform: 'translate(34%, 70%) rotate(24deg)', opacity: 0 }
-    ], { duration: 620 });
-    seal.style.visibility = 'hidden';
-
-    // 2. Клапан поднимается: сверху конверта он вращается, половину пути лежит над письмом
-    flapClosed.style.visibility = 'hidden';
-    flap.style.visibility = 'visible';
-    flap.style.zIndex = 5;
-    var flapAnim = play(flap, [
-      { transform: 'perspective(1400px) rotateX(0deg)' },
-      { transform: 'perspective(1400px) rotateX(180deg)' }
-    ], { duration: 900, easing: 'cubic-bezier(.5, 0, .2, 1)' });
-    await wait(450);
-    flap.style.zIndex = 2;
-    await flapAnim;
-
-    // 3. Письмо выезжает из кармана
-    await play(card, [
-      { transform: 'translateY(0)' },
-      { transform: 'translateY(' + (-height * 0.66) + 'px)' }
-    ], { duration: 1000 });
-
-    scatterPetals();
-
-    // 4. Конверт уходит вниз, письмо встаёт в центр и растворяется в странице
-    var slide = [{ transform: 'translateY(0)', opacity: 1 }, { transform: 'translateY(' + window.innerHeight + 'px)', opacity: 0 }];
-    var away = [env.querySelector('.env-back'), env.querySelector('.env-pocket')].map(function (el) {
-      return play(el, slide, { duration: 900, easing: 'cubic-bezier(.5, 0, .75, .4)' });
-    });
-    flap.style.visibility = 'hidden';
-
-    await play(card, [
-      { transform: 'translateY(' + (-height * 0.66) + 'px)' },
-      { transform: 'translateY(0) scale(1.12)' }
-    ], { duration: 1000 });
-    await Promise.all(away);
-
+    // 2. Половины разъезжаются и собираются к краям, как настоящая ткань
     root.classList.add('is-open');
-    play(gate.querySelector('.gate-paper'), [{ opacity: 0 }, { opacity: 1 }], { duration: 500 });
-    await play(card, [{ opacity: 1, transform: 'scale(1.12)' }, { opacity: 0, transform: 'scale(1.3)' }], { duration: 700 });
-    await play(gate, [{ opacity: 1 }, { opacity: 0 }], { duration: 300 });
+    scatterPetals();
+    var slide = { duration: 1700, easing: 'cubic-bezier(.6, .02, .2, 1)' };
+    play(gate.querySelector('.gate-seam'), [{ opacity: 1 }, { opacity: 0 }], { duration: 300 });
+    play(gate.querySelector('.curtain-left'), [
+      { transform: 'translateX(0) scaleX(1)', opacity: 1 },
+      { transform: 'translateX(-30%) scaleX(.72)', opacity: 1, offset: 0.55 },
+      { transform: 'translateX(-105%) scaleX(.5)', opacity: 0 }
+    ], slide);
+    await play(gate.querySelector('.curtain-right'), [
+      { transform: 'translateX(0) scaleX(1)', opacity: 1 },
+      { transform: 'translateX(30%) scaleX(.72)', opacity: 1, offset: 0.55 },
+      { transform: 'translateX(105%) scaleX(.5)', opacity: 0 }
+    ], slide);
     finishOpening();
   }
 
@@ -132,67 +89,23 @@
     if (location.hash) {
       finishOpening();
     } else {
+      var left = gate.querySelector('.curtain-left');
+      var right = left.cloneNode(true);
+      right.className = 'curtain curtain-right';
+      left.after(right);
       main.inert = true;
-      env.addEventListener('click', openEnvelope, { once: true });
+      gate.addEventListener('click', openCurtain, { once: true });
     }
   }
 
-  /* ---------- Веточки лаванды ---------- */
+  /* ---------- Живые детали работают, только пока их видно ---------- */
 
-  function seeded(seed) {
-    return function () {
-      seed = (seed * 16807) % 2147483647;
-      return (seed - 1) / 2147483646;
-    };
-  }
-
-  function sprigMarkup(x, baseY, tall, lean, random) {
-    var topX = x + lean;
-    var topY = baseY - tall;
-    var midX = x + lean * 0.25;
-    var midY = baseY - tall * 0.55;
-    var parts = ['<g class="sprig">'];
-    parts.push('<path d="M' + x + ' ' + baseY + 'Q' + midX + ' ' + midY + ' ' + topX + ' ' + topY + '" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>');
-
-    // Цветочная часть занимает верхнюю треть стебля
-    var buds = 14 + Math.floor(random() * 6);
-    for (var i = 0; i < buds; i++) {
-      var t = 1 - (i / buds) * 0.34;
-      var px = (1 - t) * (1 - t) * x + 2 * (1 - t) * t * midX + t * t * topX;
-      var py = (1 - t) * (1 - t) * baseY + 2 * (1 - t) * t * midY + t * t * topY;
-      var side = i % 2 ? 1 : -1;
-      var size = 3 + (1 - i / buds) * 0.4 + (i / buds) * 2.4;
-      var angle = side * (28 + random() * 22);
-      parts.push('<ellipse cx="' + (px + side * size * 0.8).toFixed(1) + '" cy="' + py.toFixed(1) + '" rx="' + (size * 0.62).toFixed(1) + '" ry="' + (size * 1.2).toFixed(1) + '" transform="rotate(' + angle.toFixed(0) + ' ' + px.toFixed(1) + ' ' + py.toFixed(1) + ')" fill="currentColor" fill-opacity="' + (0.65 + random() * 0.35).toFixed(2) + '"/>');
-    }
-    // Узкий лист у основания
-    var leafY = baseY - tall * (0.18 + random() * 0.14);
-    var leafSide = random() > 0.5 ? 1 : -1;
-    parts.push('<path d="M' + (x + lean * 0.05) + ' ' + leafY + 'q' + leafSide * 12 + ' -22 ' + leafSide * 18 + ' -46q' + leafSide * -14 + ' 16 ' + leafSide * -18 + ' 46Z" fill="currentColor" fill-opacity=".55"/>');
-    parts.push('</g>');
-    return parts.join('');
-  }
-
-  // Веточки качаются только пока их видно, чтобы не тратить батарею телефона
-  var sprigObserver = new IntersectionObserver(function (entries) {
+  var liveObserver = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       entry.target.classList.toggle('live', entry.isIntersecting);
     });
   });
-
-  document.querySelectorAll('[data-sprigs]').forEach(function (holder, index) {
-    var count = Number(holder.dataset.sprigs);
-    var random = seeded(97 + index * 31);
-    var markup = '<svg class="sprigs" viewBox="0 0 400 400" preserveAspectRatio="xMidYMax meet">';
-    for (var i = 0; i < count; i++) {
-      var x = 60 + (280 / Math.max(count - 1, 1)) * i + random() * 20 - 10;
-      var tall = 190 + random() * 180;
-      var lean = (x - 200) * 0.35 + random() * 40 - 20;
-      markup += sprigMarkup(x, 402, tall, lean, random);
-    }
-    holder.innerHTML = markup + '</svg>';
-    sprigObserver.observe(holder);
-  });
+  document.querySelectorAll('[data-live]').forEach(function (el) { liveObserver.observe(el); });
 
   /* ---------- Появление при прокрутке ---------- */
 
@@ -270,21 +183,45 @@
 
   /* ---------- Обратный отсчёт ---------- */
 
-  function daysWord(n) {
+  function plural(n, forms) {
     var tens = n % 100;
     var ones = n % 10;
-    if (tens > 10 && tens < 20) return 'дней';
-    if (ones === 1) return 'день';
-    if (ones > 1 && ones < 5) return 'дня';
-    return 'дней';
+    if (tens > 10 && tens < 20) return forms[2];
+    if (ones === 1) return forms[0];
+    if (ones > 1 && ones < 5) return forms[1];
+    return forms[2];
   }
 
-  var countdown = document.getElementById('countdown');
-  var daysLeft = Math.ceil((new Date(config.weddingDate) - new Date()) / 86400000);
-  if (countdown && daysLeft > 0) {
-    countdown.textContent = 'Осталось ' + daysLeft + ' ' + daysWord(daysLeft);
-    countdown.hidden = false;
+  var timer = document.getElementById('timer');
+  var weddingTime = new Date(config.weddingDate).getTime();
+  var timerForms = {
+    days: ['день', 'дня', 'дней'],
+    hours: ['час', 'часа', 'часов'],
+    minutes: ['минута', 'минуты', 'минут'],
+    seconds: ['секунда', 'секунды', 'секунд']
+  };
+
+  function tick() {
+    var left = Math.floor((weddingTime - Date.now()) / 1000);
+    if (left <= 0) {
+      timer.hidden = true;
+      return;
+    }
+    var values = {
+      days: Math.floor(left / 86400),
+      hours: Math.floor(left / 3600) % 24,
+      minutes: Math.floor(left / 60) % 60,
+      seconds: left % 60
+    };
+    Object.keys(values).forEach(function (unit) {
+      timer.querySelector('[data-unit="' + unit + '"]').textContent = values[unit];
+      timer.querySelector('[data-label="' + unit + '"]').textContent = plural(values[unit], timerForms[unit]);
+    });
+    timer.hidden = false;
+    setTimeout(tick, 1000);
   }
+
+  if (timer) tick();
 
   /* ---------- Анкета ---------- */
 
